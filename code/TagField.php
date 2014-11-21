@@ -193,6 +193,8 @@ class TagField extends TextField {
 	 */
 	public function setTagTopicClass($class) {
 		$this->tagTopicClass = $class;
+
+		return $this;
 	}
 	
 	/**
@@ -342,8 +344,10 @@ class TagField extends TextField {
 		return $filteredTagArr;
 	}
 	
-	public function setTagFilter($sql) {
+	public function setTagFilter($sql) {		
 		$this->tagFilter = $sql;
+
+		return $this;
 	}
 	
 	public function getTagFilter() {
@@ -359,6 +363,8 @@ class TagField extends TextField {
 	 */
 	public function setTagSort($sql) {
 		$this->tagSort = $sql;
+
+		return $this;
 	}
 	
 	/**
@@ -376,6 +382,8 @@ class TagField extends TextField {
 	 */
 	public function setSeparator($separator) {
 		$this->separator = $separator;
+
+		return $this;
 	}
 	
 	/**
@@ -393,6 +401,8 @@ class TagField extends TextField {
 	 */
 	public function setCustomTags($tags) {
 		$this->customTags = $tags;
+
+		return $this;
 	}
 	
 	/**
