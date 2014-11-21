@@ -181,7 +181,9 @@ class TagField extends TextField {
 		if(isset($obj) && is_object($obj) && $obj instanceof DataObject && $obj->many_many($this->getName())) {
 			//if(!$obj->many_many($this->getName())) user_error("TagField::setValue(): Cant find relationship named '$this->getName()' on object", E_USER_ERROR);
 			$tags = $obj->{$this->getName()}();
-			$this->value = implode($this->separator, array_values($tags->map('ID',$this->tagObjectField)->toArray()));
+			if($tags instanceof RelationList) {
+				$this->value = implode($this->separator, array_values($tags->map('ID',$this->tagObjectField)->toArray()));
+			}
 		} else {
 			parent::setValue($value, $obj);
 		}
